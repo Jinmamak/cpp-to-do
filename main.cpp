@@ -85,7 +85,17 @@ int main() {
             saveTasks(tasks);
 
         } else if (choice == 5) {
-            
+            cout << "Choose a task to mark as completed (1-" << tasks.size() << "): ";
+            int taskNumber;
+            cin >> taskNumber;
+            cin.ignore();  
+            if (taskNumber < 1 || taskNumber > tasks.size()) {
+                cout << "Invalid task number.\n";
+                continue;
+            }
+            cout << "Task \"" << tasks[taskNumber - 1] << "\" marked as completed.\n";
+            tasks.erase(tasks.begin() + taskNumber - 1);
+
             
         } else if (choice == 6) {
             cout << "Goodbye!\n";
