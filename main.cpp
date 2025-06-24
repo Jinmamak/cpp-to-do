@@ -1,8 +1,78 @@
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
+
+void loadTasks(vector<string>& tasks) {
+    ifstream in("tasks.txt");
+    string line;
+    while (getline(in, line)) {
+        if (!line.empty())
+            tasks.push_back(line);
+    }
+}
+
+
+void saveTasks(const vector<string>& tasks) {
+    ofstream out("tasks.txt", ios::trunc);
+    for (auto& t : tasks) out << t << "\n";
+}
+
 int main() {
-    cout << "Hello World";
+    vector<string> tasks;
+    loadTasks(tasks);
+
+    while (true) {
+        cout << "\n=== To-Do Menu ===\n"
+             << "1) List tasks\n"
+             << "2) Add task\n"
+             << "3) Remove task\n"
+             << "4) Quit\n"
+             << "Choose an option: ";
+
+        int choice;
+        if (!(cin >> choice)) break;
+        cin.ignore();  
+
+        if (choice == 1) {
+            cout << "\nYour tasks:\n";
+            for (int i = 0; i < tasks.size(); ++i)
+                cout << i+1 << ") " << tasks[i] << "\n";
+
+        } else if (choice == 2) {
+            cout << "Enter new task: ";
+            string task;
+            getline(cin, task);
+            if (!task.empty()) {
+                tasks.push_back(task);
+                saveTasks(tasks);
+                cout << "Added!\n";
+            }
+
+        } else if (choice == 3) {
+            cout << "Enter task number to remove: ";
+            int idx;
+            cin >> idx;
+            cin.ignore();
+            if (idx >= 1 && idx <= tasks.size()) {
+                tasks.erase(tasks.begin() + idx - 1);
+                saveTasks(tasks);
+                cout << "Removed!\n";
+            } else {
+                cout << "Invalid number.\n";
+            }
+
+        } else if (choice == 4) {
+            cout << "Goodbye!\n";
+            break;
+
+        } else {
+            cout << "Invalid choice.\n";
+        }
+    }
 
     return 0;
 }
