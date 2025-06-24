@@ -31,7 +31,8 @@ int main() {
              << "2) Add task\n"
              << "3) Remove task\n"
              << "4) Rename task\n"
-             << "5) Exit\n"
+             << "5) Mark as completed\n"
+             << "6) Exit\n"
              << "===================\n"
              << "Choose an option: ";
 
