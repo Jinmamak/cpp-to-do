@@ -1,0 +1,10 @@
+^C:\USERS\SPEED\PROJECTS\HELLOWORLD\CPP-TO-DO\BUILD\CMAKEFILES\408324326A01D41D841AD915F7CD1CB4\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/speed/projects/helloworld/cpp-to-do -BC:/Users/speed/projects/helloworld/cpp-to-do/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/speed/projects/helloworld/cpp-to-do/build/cpp_to_do.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

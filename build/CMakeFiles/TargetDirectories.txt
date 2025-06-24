@@ -1,0 +1,3 @@
+C:/Users/speed/projects/helloworld/cpp-to-do/build/CMakeFiles/cpp_to_do.dir
+C:/Users/speed/projects/helloworld/cpp-to-do/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/speed/projects/helloworld/cpp-to-do/build/CMakeFiles/ZERO_CHECK.dir
