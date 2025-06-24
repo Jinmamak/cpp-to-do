@@ -1,0 +1,19 @@
+# Ignore CMake build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+
+# Ignore Visual Studio / IDE files
+*.vcxproj*
+*.sln
+*.user
+*.ilk
+*.pdb
+*.tlog
+
+# Ignore executables
+*.exe
+
+# (Optional) ignore your tasks file if you don’t want to commit it
+tasks.txt
