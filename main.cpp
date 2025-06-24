@@ -30,7 +30,9 @@ int main() {
              << "1) List tasks\n"
              << "2) Add task\n"
              << "3) Remove task\n"
-             << "4) Quit\n"
+             << "4) Rename task\n"
+             << "5) Exit\n"
+             << "===================\n"
              << "Choose an option: ";
 
         int choice;
@@ -66,12 +68,33 @@ int main() {
             }
 
         } else if (choice == 4) {
+            string newtask;
+            int taskNumber;
+            cout << "Which task do you want to rename: ";
+            
+            cin >> taskNumber;
+            cout << "Enter new task name: ";
+            cin.ignore();  // Clear the newline character from the input buffer
+            getline(cin, newtask);
+            if (taskNumber < 1 || taskNumber > tasks.size()) {
+                cout << "Invalid task number.\n";
+                continue;
+            }
+            tasks[taskNumber - 1] = newtask;
+            cout << "Task renamed successfully!\n";
+            saveTasks(tasks);
+
+        } else if (choice == 5) {
+            
+            
+        } else if (choice == 6) {
             cout << "Goodbye!\n";
             break;
-
         } else {
             cout << "Invalid choice.\n";
         }
+            
+
     }
 
     return 0;
